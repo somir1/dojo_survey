@@ -10,7 +10,7 @@ def index():
 
 @app.route('/userresults', methods=["POST"])
 def showSurveyinfo():
-    return render_template("results.html", name = request.form["name"], dojo = request.form["dojo_location"], favlan = request.form["favlang"], comments = request.form["comments"])
+    return render_template("results.html", name = request.form["name"], dojo = request.form["dojo_location"], favlang = request.form["favlang"], comments = request.form["comments"])
 
 if __name__=="__main__":
     
