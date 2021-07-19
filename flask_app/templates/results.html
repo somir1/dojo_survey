@@ -15,12 +15,14 @@
   <body>
     <div class="con">
         <div class="forms mb-0">
+        
             <h1 class="h1"><u>Submitted Info</u></h1>
-            <h4 class="display3">Name: {{request.form["name"]}}</h4>
-            <h4 class="display4">Dojo Location: {{request.form["dojo_location"]}}</h4>
-            <h4 class="display4">Favorite Language: {{request.form["favlang"]}}</h4>
-            <h4 class="display4">Comments: {{request.form["comments"]}}</h4>
+            <h4 class="display3">Name: {{user.name}}</h4>
+            <h4 class="display4">Dojo Location: {{user.location}}</h4>
+            <h4 class="display4">Favorite Language: {{user.language}}</h4>
+            <h4 class="display4">Comments: {{user.comment}}</h4>
             <a href="/"><button type="button" class="btn btn-primary btn btn-dark">Go back</button></a>
+
         </div>
     </div>
   </body>

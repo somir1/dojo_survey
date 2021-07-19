@@ -7,25 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
     <title>User survery</title>
 </head>
 
 <body>
     <div class="con">
-        <form class="forms" action="userresults" method="post">
+        <form class="forms" action="/usercreate" method="post">
             <div class="form-group col-lg-10 col-md-4 col-sm-4">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Your Name</label>
                 <div class="col-sm-10 border border-dark">
-                    <input type="Name" class="form-control mb-0" id="name" name="name">
+                    <input type="text" class="form-control mb-0" id="full_name" name="full_name">
                 </div>
             </div>
             <div class="forms form-group col-lg-10 col-md-4 col-sm-4">
                 <label for="inputlocation">Locations</label>
-                <select class="forms form-control border border-dark" id="dojolo_cation" name="dojo_location">
+                <select class="forms form-control border border-dark" id="location" name="location">
                     <option value="Seattle">Seattle</option>
                     <option value="Los Angeles">Los Angeles</option>
                     <option value="Dallas">Dallas</option>
@@ -34,7 +34,7 @@
             </div>
             <div class="forms form-group col-lg-10 col-md-4 col-sm-4">
                 <label for="favlang">Favorite Language</label>
-                <select class="forms form-control border border-dark" id="favlang" name="favlang">
+                <select class="forms form-control border border-dark" id="language" name="language">
                     <option value="Python">Python</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="HTML">HTML</option>
@@ -43,11 +43,20 @@
             </div>
             <div class="forms ml-3 form-group">
                 <label for="comments">Comments (Optional)</label>
-                <textarea class="form-control col-lg-3 col-md-4 col-sm-9 border border-dark" id="Comments" rows="2"
-                    name="comments"></textarea>
+                <textarea class="form-control col-lg-3 col-md-4 col-sm-9 border border-dark" id="comment" rows="2"
+                    name="comment"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn btn-dark" value="Submit">Submit Survey</button
+            <button type="submit" class="btn btn-primary btn btn-dark" value="Submit">Submit Survey</button>
         </form>
+        <div>
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
     </div>
 </body>
 
